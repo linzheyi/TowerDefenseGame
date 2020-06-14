@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>picture/mainwindow.bmp</file>
+        <file>picture/start_btn.png</file>
+        <file>picture/secondwindow.bmp</file>
+        <file>picture/return.png</file>
+        <file>picture/choose.png</file>
+        <file>picture/frozenmap.png</file>
+        <file>picture/woodmap.bmp</file>
+        <file>picture/settowrbutton.png</file>
+    </qresource>
+</RCC>
