@@ -8,6 +8,8 @@
 #include <QPushButton>
 #include <QString>
 
+//选关界面
+
 class SecondWindow : public QMainWindow
 {
     Q_OBJECT

@@ -8,6 +8,8 @@
 #include <QPushButton>
 #include <QString>
 
+//开始界面
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

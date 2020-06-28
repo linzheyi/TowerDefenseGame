@@ -1,43 +1,96 @@
 #include "towerposition.h"
+
+#include <QSize>
 #include <QPainter>
 #include <QPixmap>
 
-const QSize TowerPosition::t_fixedSize(44, 44);
+const QSize TowerPosition::m_fixedSize(50,50);//设置图片的大小
 
-//构造函数，参数：塔的绘制坐标点，图片地址
-TowerPosition::TowerPosition(QPoint pos, const QPixmap &sprite)
-    : t_pos(pos)
-    , t_hasTower(false)
-    , t_sprite(sprite)
+TowerPosition::TowerPosition(QPoint pos, QString path):
+    m_pos(pos),
+    m_path(path),
+    m_hasTower(false),
+    m_hasButton(false),
+    m_hasTower1(false),
+    m_hasTower2(false)
 {
 }
 
-//塔基中心点
-const QPoint TowerPosition::centerPos() const
+bool TowerPosition::hasTower()
 {
-    QPoint offsetPoint(t_fixedSize.width() / 2, t_fixedSize.height() / 2);
-    return t_pos + offsetPoint;
+    return m_hasTower;
 }
 
-bool TowerPosition::containPoint(const QPoint &pos) const
+void TowerPosition::setHasTower(bool hasTower)
 {
-    bool isXHere = t_pos.x() < pos.x() && pos.x() < (t_pos.x() + t_fixedSize.width());
-    bool isYHere = t_pos.y() < pos.y() && pos.y() < (t_pos.y() + t_fixedSize.height());
-    return isXHere && isYHere;
+    m_hasTower=hasTower;
 }
 
-//输出判断是否有塔
-bool TowerPosition::hasTower() const
+QPoint TowerPosition::getCenterPos()
 {
-    return t_hasTower;
+    QPoint tmp;
+    tmp.setX(m_pos.x()+m_fixedSize.width()/2);
+    tmp.setY(m_pos.y()+m_fixedSize.height()/2);
+    return tmp;
 }
 
-void TowerPosition::setHasTower(bool hasTower/* = true*/)
+QPoint TowerPosition::getPos()
 {
-    t_hasTower = hasTower;
+    return m_pos;
+}
+
+bool TowerPosition::ContainPos(QPoint pos)
+{
+    bool xInHere=pos.x()>m_pos.x() && pos.x()<m_pos.x()+m_fixedSize.width();
+    bool yInHere=pos.y()>m_pos.y() && pos.y()<m_pos.y()+m_fixedSize.height();
+    return xInHere && yInHere;
 }
 
 void TowerPosition::draw(QPainter *painter) const
 {
-    painter->drawPixmap(t_pos.x(),t_pos.y(),t_sprite);
+    painter->drawPixmap(m_pos.x(),m_pos.y(),m_path);
 }
+
+bool TowerPosition::hasButton()
+{
+    return m_hasButton;
+}
+
+void TowerPosition::setHasButton(bool hasButton)
+{
+    m_hasButton=hasButton;
+}
+
+void TowerPosition::setButton(chooseButton *button)
+{
+    m_button=button;
+}
+
+chooseButton * TowerPosition::getButton()
+{
+    return m_button;
+}
+
+void TowerPosition::setHasTower1(bool hasTower1)
+{
+    this->m_hasTower1=hasTower1;
+    setHasTower(hasTower1);
+}
+
+
+bool TowerPosition::hasTower1()
+{
+    return m_hasTower1;
+}
+
+void TowerPosition::setHasTower2(bool hasTower2)
+{
+    this->m_hasTower2=hasTower2;
+    setHasTower(hasTower2);
+}
+
+bool TowerPosition::hasTower2()
+{
+    return m_hasTower2;
+}
+

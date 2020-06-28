@@ -23,7 +23,7 @@ SecondWindow::SecondWindow(QWidget *parent) : QMainWindow(parent)
 
     Button *frozen_btn=new Button(":/picture/settowrbutton.png");
     frozen_btn->setParent(this);
-    frozen_btn->move(150,100);
+    frozen_btn->move(550,260);
     FrozenMap *fm=new FrozenMap;
     connect(frozen_btn,&QPushButton::clicked,this,[=](){
 

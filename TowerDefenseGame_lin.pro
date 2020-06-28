@@ -1,6 +1,8 @@
-QT       += core gui
+QT       += core gui multimedia
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
 
 CONFIG += c++11
 
@@ -16,19 +18,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    audioplayer.cpp \
+    bullet.cpp \
     button.cpp \
+    choosebutton.cpp \
+    enemy.cpp \
     frozenmap.cpp \
     main.cpp \
     mainwindow.cpp \
+    road.cpp \
     secondwindow.cpp \
+    tip.cpp \
+    tower.cpp \
     towerposition.cpp \
     woodmap.cpp
 
 HEADERS += \
+    Utility.h \
+    audioplayer.h \
+    bullet.h \
     button.h \
+    choosebutton.h \
+    enemy.h \
     frozenmap.h \
     mainwindow.h \
+    road.h \
     secondwindow.h \
+    tip.h \
+    tower.h \
     towerposition.h \
     woodmap.h
 
@@ -42,3 +59,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     res.qrc
+
+
